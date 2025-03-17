@@ -9,7 +9,6 @@ function agregarAmigo(){
         alert('Por favor, inserte un nombre');
     }else {
         amigos.push(document.getElementById('amigo').value);
-        console.log(amigos);
         listarAmigos();
         limpiarCaja();
     }
@@ -20,7 +19,8 @@ function limpiarCaja() {
 }
 
 function listarAmigos(){
-    lista.innerHTML = "";
+    limpiarLista();
+    limpiarResultado();
     for(var i = 0; i < amigos.length; i++){
         lista.innerHTML += `<li>${amigos[i]}</li>`;
     }
@@ -31,13 +31,21 @@ function sortearAmigo(){
         alert('Por favor, ingresa un nombre para iniciar el juego');
     } else{
         let numeroMaximo = amigos.length;
-        console.log(numeroMaximo);
         let numeroGenerado =  Math.floor(Math.random()*numeroMaximo)+1;
-        console.log(numeroGenerado);
         resultado.innerHTML = `<li>${amigos[numeroGenerado-1]}</li>`;
+        limpiarAmigos();
+        limpiarLista();
     }
 }
 
+function limpiarLista() {
+    lista.innerHTML = "";
+}
+
+function limpiarResultado(){
+    resultado.innerHTML = "";
+}
+
 function limpiarAmigos(){
-    amigos.length === 0;
+    amigos.length = 0;
 }
