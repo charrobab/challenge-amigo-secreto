@@ -32,7 +32,7 @@ function sortearAmigo(){
     } else{
         let numeroMaximo = amigos.length;
         let numeroGenerado =  Math.floor(Math.random()*numeroMaximo)+1;
-        resultado.innerHTML = `<li>${amigos[numeroGenerado-1]}</li>`;
+        resultado.innerHTML = `<li>Tu amigo secre es: ¡${amigos[numeroGenerado-1]}!</li>`;
         limpiarAmigos();
         limpiarLista();
     }
